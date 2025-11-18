@@ -1,0 +1,42 @@
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="relative z-40">
+      <nav className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="relative w-9 h-9 rounded-md bg-amber-500/20 ring-1 ring-amber-400/40 overflow-hidden">
+            {/* Twin suns */}
+            <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-amber-300 blur-[1px] shadow-[0_0_25px_rgba(251,191,36,0.8)]" />
+            <div className="absolute top-2 left-3 w-3.5 h-3.5 rounded-full bg-orange-300/90 blur-[0.5px]" />
+          </div>
+          <span className="text-xl font-semibold tracking-tight text-amber-200 drop-shadow">Jawa Networks</span>
+        </div>
+
+        <div className="hidden md:flex items-center gap-8">
+          <a href="#features" className="text-amber-100/80 hover:text-amber-100 transition">Features</a>
+          <a href="#usecases" className="text-amber-100/80 hover:text-amber-100 transition">Use cases</a>
+          <a href="#pricing" className="text-amber-100/80 hover:text-amber-100 transition">Plans</a>
+          <a href="#contact" className="inline-flex items-center gap-2 rounded-md bg-amber-500/90 px-4 py-2 text-slate-900 font-semibold shadow hover:bg-amber-400 transition">Get a quote</a>
+        </div>
+
+        <button className="md:hidden inline-flex items-center justify-center p-2 text-amber-100" onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
+          {open ? <X /> : <Menu />}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden mx-4 rounded-xl border border-amber-400/20 bg-slate-900/70 backdrop-blur-md p-4 space-y-2">
+          <a href="#features" className="block px-3 py-2 rounded-md text-amber-100/90 hover:bg-amber-400/10">Features</a>
+          <a href="#usecases" className="block px-3 py-2 rounded-md text-amber-100/90 hover:bg-amber-400/10">Use cases</a>
+          <a href="#pricing" className="block px-3 py-2 rounded-md text-amber-100/90 hover:bg-amber-400/10">Plans</a>
+          <a href="#contact" className="block px-3 py-2 rounded-md bg-amber-500/90 text-slate-900 font-semibold">Get a quote</a>
+        </div>
+      )}
+    </header>
+  );
+}

@@ -1,71 +1,47 @@
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Features from './components/Features'
+import UseCases from './components/UseCases'
+import Pricing from './components/Pricing'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div className="min-h-screen bg-slate-950 text-amber-50 relative">
+      {/* Subtle starfield + heat haze */}
+      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(110%_80%_at_50%_-10%,rgba(245,158,11,0.08),transparent),radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.06),transparent_20%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.05),transparent_22%),radial-gradient(circle_at_60%_70%,rgba(255,255,255,0.04),transparent_18%)]" />
 
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
+      <Navbar />
+      <Hero />
+      <Features />
+      <UseCases />
+      <Pricing />
+
+      {/* Contact / CTA */}
+      <section id="contact" className="relative py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(234,179,8,0.10),transparent)]" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-amber-100">Tell us your mission</h2>
+          <p className="mt-3 text-amber-100/75">Well scope your custom AI build and share a plan within 48 standard hours.</p>
+          <form className="mt-8 grid gap-4 text-left">
+            <input type="text" name="name" placeholder="Your name" className="w-full rounded-md border border-amber-400/20 bg-slate-900/60 px-4 py-3 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:ring-2 focus:ring-amber-400/50" />
+            <input type="email" name="email" placeholder="Work email" className="w-full rounded-md border border-amber-400/20 bg-slate-900/60 px-4 py-3 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:ring-2 focus:ring-amber-400/50" />
+            <textarea name="project" rows="4" placeholder="What are you trying to build?" className="w-full rounded-md border border-amber-400/20 bg-slate-900/60 px-4 py-3 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:ring-2 focus:ring-amber-400/50" />
+            <div className="flex items-center justify-center">
+              <button type="button" className="inline-flex items-center justify-center rounded-md bg-amber-500 px-6 py-3 font-semibold text-slate-900 shadow hover:bg-amber-400 transition">
+                Send transmission
+              </button>
             </div>
-
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
-          </div>
+          </form>
         </div>
-      </div>
+      </section>
+
+      {/* Footer with Jawa easter egg */}
+      <footer className="relative border-t border-amber-400/10">
+        <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-amber-100/70 text-sm">© {new Date().getFullYear()} Jawa Networks — Custom AI development</p>
+          <p className="text-amber-200/80 text-sm">Utinni! Fueling innovation from Tatooine to Coruscant.</p>
+        </div>
+      </footer>
     </div>
   )
 }
