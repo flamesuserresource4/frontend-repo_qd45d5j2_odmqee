@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function ShootingStars({ className = "absolute inset-0 pointer-events-none" }) {
+export default function ShootingStars({ className = "absolute inset-0 pointer-events-none", depth = -120, scrollY = 0 }) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -21,5 +21,8 @@ export default function ShootingStars({ className = "absolute inset-0 pointer-ev
     const id = setInterval(make, 900);
     return () => clearInterval(id);
   }, []);
-  return <div ref={ref} className={className}/>;
+
+  const parallaxY = (scrollY * (depth / 600));
+
+  return <div ref={ref} className={className} style={{ transform: `translateY(${parallaxY}px) translateZ(${depth}px)` }} aria-hidden="true"/>;
 }
