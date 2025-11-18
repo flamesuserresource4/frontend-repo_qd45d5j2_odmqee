@@ -1,16 +1,21 @@
 import { Sparkles } from "lucide-react";
+import AnimatedDroids from "./AnimatedDroids";
+import Sandcrawler from "./Sandcrawler";
+import Starfield from "./Starfield";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Sand dune gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,rgba(251,191,36,0.20),transparent),linear-gradient(to_bottom,rgba(15,23,42,1),rgba(15,23,42,0.9))]" />
-      {/* Stars */}
-      <div className="pointer-events-none absolute inset-0 opacity-50 mix-blend-screen">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.10),transparent_20%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_20%),radial-gradient(circle_at_40%_70%,rgba(255,255,255,0.06),transparent_18%)]" />
-      </div>
 
-      {/* Jawa silhouettes / dunes */}
+      {/* Stars */}
+      <Starfield />
+
+      {/* Animated droids */}
+      <AnimatedDroids className="absolute inset-0 mix-blend-screen opacity-70" />
+
+      {/* Dunes */}
       <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="url(#sand)" fillOpacity="0.5" d="M0,256L60,250.7C120,245,240,235,360,197.3C480,160,600,96,720,80C840,64,960,96,1080,101.3C1200,107,1320,85,1380,74.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
         <defs>
@@ -20,6 +25,13 @@ export default function Hero() {
           </linearGradient>
         </defs>
       </svg>
+
+      {/* Sandcrawler silhouette with gentle hover */}
+      <div className="pointer-events-none">
+        <div className="[animation:float_6s_ease-in-out_infinite]">
+          <Sandcrawler />
+        </div>
+      </div>
 
       <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-36 text-center">
         <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/10 px-3 py-1 text-amber-200 text-sm">
